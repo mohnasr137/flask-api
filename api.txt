@@ -1,0 +1,33 @@
+
+GET https://flask-u8mp.onrender.com/home
+
+GET https://flask-u8mp.onrender.com/logo
+
+GET https://flask-u8mp.onrender.com/favicon
+
+POST https://flask-u8mp.onrender.com/image
+body :{
+  "username": "exampleUser",
+  "path": "examplePath"
+}
+
+GET https://flask-u8mp.onrender.com/output/<filename>
+
+POST https://flask-u8mp.onrender.com/signup
+body :{
+  "username": "exampleUser",
+  "email": "user@example.com",
+  "password": "examplePassword"
+}
+
+GET https://flask-u8mp.onrender.com/signupPage
+
+POST https://flask-u8mp.onrender.com/login
+body :{
+  "username": "exampleUser",
+  "password": "examplePassword"
+}
+
+GET https://flask-u8mp.onrender.com/loginPage
+
+POST https://flask-u8mp.onrender.com/logout

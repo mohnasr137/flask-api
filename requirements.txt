@@ -1,6 +1,6 @@
 Flask
 pymongo
+diffusers
 werkzeug
-tensorflow
-numpy
+torch
 Pillow

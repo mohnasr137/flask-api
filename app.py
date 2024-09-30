@@ -31,7 +31,7 @@ if not os.path.exists(OUTPUT_FOLDER):
 # Route for home
 @app.route("/home", methods=["GET"])
 def home():
-    return render_template("index.html", image_path=None)
+    return render_template("./front/index.html", image_path=None)
 
 # Route for logo
 @app.route('/logo', methods=["GET"])
@@ -56,7 +56,7 @@ def favicon():
 #         image_path = os.path.join(OUTPUT_FOLDER, filename)
 #         image.save(image_path)
 #         paths_collection.insert_one({'username': username, 'path': image_path})
-#         return render_template("index.html", image_path=image_path)
+#         return render_template("./front/index.html", image_path=image_path)
 
 # Route for output
 # @app.route('/output/<filename>', methods=["GET"])
@@ -86,7 +86,7 @@ def signup():
 # Route for signupPage
 @app.route('/signupPage', methods=['GET'])
 def signupPage():
-    return render_template("signup.html", image_path=None)
+    return render_template("./front/signup.html", image_path=None)
 
 # Route for login
 @app.route('/login', methods=['Post'])
@@ -109,7 +109,7 @@ def login():
 # Route for loginPage
 @app.route('/loginPage', methods=['GET'])
 def loginPage():
-    return render_template("login.html", image_path=None)
+    return render_template("./front/login.html", image_path=None)
 
 # Route for logout
 @app.route('/logout', methods=['POST'])

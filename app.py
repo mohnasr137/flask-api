@@ -30,7 +30,7 @@ if not os.path.exists(OUTPUT_FOLDER):
 
 # Route for home
 @app.route("/home", methods=["GET"])
-def index():
+def home():
     return render_template("index.html", image_path=None)
 
 # Route for logo
@@ -85,7 +85,7 @@ def signup():
 
 # Route for signupPage
 @app.route('/signupPage', methods=['GET'])
-def signup():
+def signupPage():
     return render_template("signup.html", image_path=None)
 
 # Route for login
@@ -108,7 +108,7 @@ def login():
 
 # Route for loginPage
 @app.route('/loginPage', methods=['GET'])
-def login():
+def loginPage():
     return render_template("login.html", image_path=None)
 
 # Route for logout

@@ -19,9 +19,9 @@ users_collection = db['users']
 paths_collection = db['paths']
 
 # Path to the locally stored pretrained model (just the .pth file)
-model_path = os.path.join(os.path.dirname(__file__), 'full_model.pth')
-model = torch.load(model_path)
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# model_path = os.path.join(os.path.dirname(__file__), 'full_model.pth')
+# model = torch.load(model_path)
+# device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Folder to save generated images
 OUTPUT_FOLDER = os.path.join(os.path.dirname(__file__), 'out_put')
@@ -44,24 +44,24 @@ def favicon():
     return send_from_directory('static', 'favicon.ico')
 
 # Route for image
-@app.route("/image", methods=["POST"])
-def index():
-        data = request.get_json()
-        username = data.get('username')
-        prompt = request.form.get("prompt")
-        image = model(prompt).images[0]
-        random_number = random.randint(1000, 9999)
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"generated_image_{timestamp}_{random_number}.png"
-        image_path = os.path.join(OUTPUT_FOLDER, filename)
-        image.save(image_path)
-        paths_collection.insert_one({'username': username, 'path': image_path})
-        return render_template("index.html", image_path=image_path)
+# @app.route("/image", methods=["POST"])
+# def index():
+#         data = request.get_json()
+#         username = data.get('username')
+#         prompt = request.form.get("prompt")
+#         image = model(prompt).images[0]
+#         random_number = random.randint(1000, 9999)
+#         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+#         filename = f"generated_image_{timestamp}_{random_number}.png"
+#         image_path = os.path.join(OUTPUT_FOLDER, filename)
+#         image.save(image_path)
+#         paths_collection.insert_one({'username': username, 'path': image_path})
+#         return render_template("index.html", image_path=image_path)
 
 # Route for output
-@app.route('/output/<filename>', methods=["GET"])
-def output_file(filename):
-    return send_from_directory(OUTPUT_FOLDER, filename)
+# @app.route('/output/<filename>', methods=["GET"])
+# def output_file(filename):
+#     return send_from_directory(OUTPUT_FOLDER, filename)
 
 # Route for signup
 @app.route('/signup', methods=['Post'])
